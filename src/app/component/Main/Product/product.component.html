@@ -1,0 +1,50 @@
+
+    <img [src]="storLogo" alt="" class="logo">
+    
+    <h1>{{storeName}}</h1>
+    <br><br><br>
+    <h3 *ngIf="discountOffer!==0">We offer an explicit discount of: {{discountOffer}}</h3>
+<input type="text" placeholder="Enter Your Name"  [(ngModel)]="clientName">
+<br><br>
+<div class="mb-3">
+    <label for="prdCat" class="form-label">Category</label>
+    <select class="form-select form-select-lg" name="cat" id="prdCat" [(ngModel)]=" selectedCatID">
+        <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
+    </select>
+</div>
+<div class="text-secondary">[To be Removed] for test:
+    {{ selectedCatID}}
+</div>
+<div class="table-responsive p-2">
+    <!-- <table class="table table-white text-center" *ngIf="IsPurshased"> -->
+        <table class="table table-white text-center" *ngIf="IsPurshased; else Thanks">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Av. Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+                <th scope="col">Buy</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr ProductCard bgColour="red" *ngFor="let prd of prdList; let i=index; trackBy:prdTrackByFn" [class.bg-warning]="prd.quantity==1" [class.bg-danger]="prd.quantity==0" [class.d-none]="selectedCatID!=prd.categoryID" >
+                
+                <td>{{prd?.id}}</td>
+                <td>{{prd.name}}</td>
+                <td>{{prd.quantity}}</td>
+                <td>{{prd.price}}</td>
+                <td><img [src]="prd.imgURL" alt="" style="width: 200px; height: 100px;"></td>
+                <!-- <td><input #itemsCount type="number" class="form-control"></td> -->
+                <td><button type="button" class="btn btn-primary" (click)="buy(prd.id,prd.quantity)">Buy</button></td>
+                <!-- <td>{{orderNewQuantity}}</td> -->
+               <!-- <td><h3>New Quantity for this product {{prd.name}} is {{orderNewQuantity}}</h3></td>  -->
+            </tr>
+    </table>  
+    <!-- <div *ngIf="!IsPurshased " class="text-center">"Thanks for purchasing from our Store {{clientName}}"</div> -->
+    <ng-template #Thanks class="text-center">"Thanks for purchasing from our Store {{clientName}}"</ng-template>
+    <button type="button" class="btn btn-primary" (click)="toggleTable()">Buy</button> 
+</div>
+<hr>
+<h3>New Quantity is {{orderNewQuantity}}</h3>
