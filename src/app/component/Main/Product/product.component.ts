@@ -1,7 +1,7 @@
 import { Component,OnInit } from "@angular/core";
 import { ICategory } from "src/app/Model/icategory";
 import { IProduct } from "src/app/Model/iproduct";
-import { DiscountOffer, DiscountOffers} from "src/app/Model/discount-offers";
+import { DiscountOffer } from "src/app/Model/discount-offers";
 import { Stordata } from "src/app/Viewmodel/stordata";
 
 @Component({
@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit{
     IsPurshased :boolean=true;
     discountOffer: DiscountOffer=DiscountOffer.Discount10parcentage
     prdList:IProduct[] |null;
-    orderNewQuantity:number=0;
+    orderNewPrice:number=0;
     storeName:string;
     storLogo:string;
     catList:ICategory[] ;
@@ -45,15 +45,6 @@ export class ProductComponent implements OnInit{
     }
     toggleTable(){
     this.IsPurshased=!this.IsPurshased;
-    }
-    buy(prdID:number,count:number){
-        
-            console.log(count)
-            this.orderNewQuantity=count-1;
-            // this.orderNewQuantity = prdQuntity-1;
-            // prdQuntity= prdQuntity-1;
-            console.log(count)
-    //    this.orderNewQuantity=this.orderNewQuantity--
     }
     prdTrackByFn(index:number,prd:IProduct):number{
         return prd.id;

@@ -1,0 +1,59 @@
+<h1>{{nationalID|transform}}</h1>
+<!-- <h2>{{birthDay|date:'dd-MM-yyyy'}}</h2> -->
+<input type="text" placeholder="Enter Your National ID"  [(ngModel)]="nationalID">
+
+<form (ngSubmit)="addProduct()">
+  <div class="mb-3">
+    <label for="pName" class="form-label">Product Name</label>
+    <input type="text" class="form-control" id="pName">
+  </div>
+  <div class="mb-3">
+    <label for="pPrice" class="form-label">Product Price</label>
+    <input type="number" class="form-control" id="pPrice">
+  </div>
+  <div class="mb-3">
+    <label for="pQuantitiy" class="form-label">Product Quantity</label>
+    <input type="number" class="form-control" id="pQuantitiy">
+  </div>
+  <div class="mb-3">
+    <label for="pCategory" class="form-label">Product Quantity</label>
+    <select class="form-select form-select-lg" name="cat" id="pCategory">
+      <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
+  </select>
+  </div>
+  <div class="mb-3">
+    <label for="pImage" class="form-label">Product Image</label>
+    <input type="file" class="form-control" id="pImage">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div class="mb-3">
+    <label for="prdCat" class="form-label">Category</label>
+    <select class="form-select form-select-lg" name="cat" id="prdCat" [(ngModel)]=" selectedCatID">
+        <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
+    </select>
+</div>
+<div class="text-secondary">[To be Removed] for test:
+    {{ selectedCatID}}
+</div>
+<br><br>
+<div class="d-flex row justify-content-around m-3">
+<div ProductCard="rgb(189, 189, 218)" class="card p-3 ms-5" style="width: 18rem;" *ngFor="let prd of prdList"  [class.d-none]="selectedCatID!=prd.categoryID">
+    <img [src]="prd.imgURL" class="card-img-top ms-3" alt="" style="width: 200px; height: 100px;">
+    <div class="card-body text-center">
+      <h5 class="card-title">{{prd.name}}</h5>
+      <h5 [class.bg-warning]="prd.quantity==1" [class.bg-danger]="prd.quantity==0" class="card-title" >
+        <div *ngIf="prd.quantity!=0 && prd.quantity!=1">{{prd.quantity}}</div>
+        <div *ngIf="prd.quantity==0">Out of stock</div>
+        <div *ngIf="prd.quantity==1">The last one</div>
+      </h5>
+      <h5 class="card-title">{{prd.price}}</h5>
+      <button class="btn btn-primary me-2">Add to Cart</button>
+      <button type="button" class="btn btn-primary" (click)="buy(prd.id)">Buy</button>
+    </div>
+  </div>
+</div>
+<hr>
+<h3>Total price is {{orderNewQuantity}}</h3>

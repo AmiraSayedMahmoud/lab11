@@ -6,8 +6,12 @@ import { FooterComponent } from './component/Footer/footer.component';
 import { HeaderComponent } from './component/Header/header.component';
 import { ProductComponent } from './component/Main/Product/product.component';
 import { MainComponent } from './component/Main/main.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductCardDirective } from './Directives/product-card.directive';
+import { ProductCardComponent } from './component/product-card/product-card.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { TransformPipe } from './pipes/transform.pipe';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +20,15 @@ import { ProductCardDirective } from './Directives/product-card.directive';
     FooterComponent,
     ProductComponent,
     MainComponent,
-    ProductCardDirective
+    ProductCardDirective,
+    ProductCardComponent,
+    NavbarComponent,
+    TransformPipe
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

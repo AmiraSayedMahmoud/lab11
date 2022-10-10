@@ -29,15 +29,16 @@
             </tr>
         </thead>
         <tbody >
-            <tr ProductCard bgColour="red" *ngFor="let prd of prdList; let i=index; trackBy:prdTrackByFn" [class.bg-warning]="prd.quantity==1" [class.bg-danger]="prd.quantity==0" [class.d-none]="selectedCatID!=prd.categoryID" >
+            <tr  *ngFor="let prd of prdList; let i=index; trackBy:prdTrackByFn" [class.d-none]="selectedCatID!=prd.categoryID" >
                 
                 <td>{{prd?.id}}</td>
                 <td>{{prd.name}}</td>
                 <td>{{prd.quantity}}</td>
                 <td>{{prd.price}}</td>
                 <td><img [src]="prd.imgURL" alt="" style="width: 200px; height: 100px;"></td>
+                <td><input  type="number" class="form-control"></td>
                 <!-- <td><input #itemsCount type="number" class="form-control"></td> -->
-                <td><button type="button" class="btn btn-primary" (click)="buy(prd.id,prd.quantity)">Buy</button></td>
+                <td><button type="button" class="btn btn-primary" >Buy</button></td>
                 <!-- <td>{{orderNewQuantity}}</td> -->
                <!-- <td><h3>New Quantity for this product {{prd.name}} is {{orderNewQuantity}}</h3></td>  -->
             </tr>
@@ -46,5 +47,4 @@
     <ng-template #Thanks class="text-center">"Thanks for purchasing from our Store {{clientName}}"</ng-template>
     <button type="button" class="btn btn-primary" (click)="toggleTable()">Buy</button> 
 </div>
-<hr>
-<h3>New Quantity is {{orderNewQuantity}}</h3>
+
