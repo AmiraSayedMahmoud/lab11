@@ -1,5 +1,5 @@
 import { Component,OnInit } from "@angular/core";
-import { Stordata } from "src/app/Viewmodel/stordata";
+// import { Stordata } from "src/app/Viewmodel/stordata";
 
 @Component({
     selector:'app-header',
@@ -9,9 +9,9 @@ import { Stordata } from "src/app/Viewmodel/stordata";
 })
 
 export class HeaderComponent implements OnInit{
-    storeInfo: Stordata;
+    // storeInfo: Stordata;
     constructor() { 
-        this.storeInfo=new Stordata('https://picsum.photos/200/300/')
+        // this.storeInfo=new Stordata('https://picsum.photos/200/300/')
     }
 
     ngOnInit(): void {

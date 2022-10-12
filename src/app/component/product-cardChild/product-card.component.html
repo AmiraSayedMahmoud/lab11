@@ -1,6 +1,9 @@
-<h1>{{nationalID|transform}}</h1>
+
 <!-- <h2>{{birthDay|date:'dd-MM-yyyy'}}</h2> -->
-<input type="text" placeholder="Enter Your National ID"  [(ngModel)]="nationalID">
+<input type="text" placeholder="Enter Your National ID" [(ngModel)]="nationalID">
+<h1>{{nationalID|transform }}</h1>
+<input type="text" placeholder="Enter Your CreditCard number" [(ngModel)]="criditCard">
+<h2>{{criditCard|format}}</h2>
 
 <form (ngSubmit)="addProduct()">
   <div class="mb-3">

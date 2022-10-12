@@ -1,0 +1,41 @@
+<h2>Create Your Order:</h2>
+
+<div class="mb-3">
+    <label for="prdCat" class="form-label">Category</label>
+    <select class="form-select form-select-lg" name="cat" id="prdCat" [(ngModel)]=" selectedCatID" >
+        <option value="0" selected>All</option>
+        <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
+    </select>
+</div>
+<hr>
+<!-- receiveOrderTotalPrice -->
+<h3>Order total price: {{totalPriceWithTax}}</h3>
+
+<hr>
+<app-product [sentCatID]="selectedCatID" (totalPriceChanges)="onTotalPriceChanges($event)" (receiveBoughtProduct)="addToCart($event)"></app-product>
+
+<hr>
+<div class="table-responsive p-2">
+        <table class="table table-white text-center">
+        <thead>
+            <tr>
+                <th scope="col">Product ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+                <th scope="col">#Items</th>
+            </tr>
+        </thead>
+        <tbody >
+          
+            <tr  *ngFor="let cart of cartList;">     
+                <td>{{cart.productID}}</td>
+                <td>{{cart.productName}}</td>
+                <td>{{cart.unitPrice}}</td>
+                <td><img [src]="cart.productImg" alt="" style="width: 200px; height: 100px;"></td>
+                <td><input #quantity type="number" value="{{cart.selsctedQuantity}}"></td>
+                <button type="button" (click)="totalPrice(cart.productID,quantity.value)">Total price:</button>
+            </tr>
+        </table>  
+    
+</div>

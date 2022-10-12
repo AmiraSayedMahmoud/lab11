@@ -1,4 +1,3 @@
-export class Stordata {
-    constructor(public imgURL:string){}
-}
-
+// export class Stordata {
+//     constructor(public imgURL:string){}
+// }

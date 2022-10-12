@@ -1,7 +1,7 @@
-import { Stordata } from './stordata';
+// import { Stordata } from './stordata';
 
-describe('Stordata', () => {
-  it('should create an instance', () => {
-    expect(new Stordata()).toBeTruthy();
-  });
-});
+// describe('Stordata', () => {
+//   it('should create an instance', () => {
+//     expect(new Stordata()).toBeTruthy();
+//   });
+// });
