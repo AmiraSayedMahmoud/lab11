@@ -1,0 +1,18 @@
+<div class="container">
+    <form class="row g-3" [formGroup]="updateform" (ngSubmit)="update()" >
+      <div class="col-md-6">
+        <label for="validationCustom01" class="form-label">Title</label>
+        <input type="text" class="form-control" formControlName="Title">
+        
+        <label for="validationCustom01" class="form-label">ID</label>
+        <input type="number" class="form-control" formControlName="ID">
+        
+        <label for="validationCustom01" class="form-label">IsDone</label>
+        <input type="text" class="form-control" formControlName="IsDone">
+      <div class="col-12 text-center">
+        <button class="btn btn-primary" type="submit">Update Now</button>
+      </div>
+
+  </div>
+</form>
+</div>

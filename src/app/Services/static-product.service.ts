@@ -1,5 +1,8 @@
+
 import { Injectable } from '@angular/core';
+
 import { IProduct } from '../Model/iproduct';
+
 
 @Injectable({
   providedIn: 'root'
@@ -40,4 +43,7 @@ private prdList:IProduct[];
     let prdIDs: number[] = this.prdList.map(prd=>prd.id);
     return prdIDs;
    }
-}
+   
+    
+   }
+

@@ -1,0 +1,15 @@
+<div class="container">
+    <form class="row g-3" [formGroup]="addform" (ngSubmit)="add()" >
+      <div class="col-md-6">
+        <label for="validationCustom01" class="form-label">Title</label>
+        <input type="text" class="form-control" formControlName="Title">
+          <div  *ngIf="addform.get('Title')?.touched && addform.get('Title')?.invalid">
+            <span class="text-danger" *ngIf="addform.get('Title')?.errors?.['required']">must enter a Title</span>
+            <span class="text-danger" *ngIf="addform.get('Title')?.errors?.['maxlength']">must enter a title at most 100 character</span>
+          </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-primary" type="submit" [disabled]="addform.invalid">Submit form</button>
+      </div>
+
+  </div>
+</form>

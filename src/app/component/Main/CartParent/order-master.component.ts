@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from "src/app/Model/icategory";
+import { StaticProductService } from 'src/app/Services/static-product.service';
 import { ShoppingCartItems } from 'src/app/Viewmodel/shopping-cart-items';
 @Component({
   selector: 'order-master',
@@ -13,13 +14,16 @@ export class OrderMasterComponent implements OnInit {
   cartList:ShoppingCartItems[]=[];
   orderNewPrice:number=0;
   totalPriceWithTax:number=0;
-  constructor() {
+  constructor(private staticPrdService:StaticProductService) {
     this.catList=[
       {id:1,name:'Labtop'},
       {id:2,name:'Tab'},
       {id:3,name:'Mobile'}
    ];
    }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   this.prdListofPrd=this.staticPrdService.getProductByID(this.sentCatID)
+  // }
 
   ngOnInit(): void {
   }

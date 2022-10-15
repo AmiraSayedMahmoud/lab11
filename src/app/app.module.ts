@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {  HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { FooterComponent } from './component/Footer/footer.component';
 import { HeaderComponent } from './component/Header/header.component';
@@ -20,6 +20,9 @@ import { NotFoundComponent } from './component/not-found/not-found.component';
 import { UserLoginComponent } from './component/user-login/user-login.component';
 import { DetailsComponentComponent } from './component/Main/details-component/details-component.component';
 import { FormatPipe } from './pipe/format.pipe';
+import { TodoListComponent } from './component/todo-list/todo-list.component';
+import { TodoComponent } from './component/todo/todo.component';
+import { CteatTodoComponent } from './component/cteat-todo/cteat-todo.component';
 
 
 @NgModule({
@@ -40,13 +43,17 @@ import { FormatPipe } from './pipe/format.pipe';
     NotFoundComponent,
     UserLoginComponent,
     DetailsComponentComponent,
-    FormatPipe
+    FormatPipe,
+    TodoListComponent,
+    TodoComponent,
+    CteatTodoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

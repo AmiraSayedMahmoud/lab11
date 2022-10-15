@@ -1,0 +1,30 @@
+<div *ngIf="isloading" class="spinner-grow" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+<table *ngIf="!isloading" class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Titel</th>
+        <th scope="col">IsDone</th>
+        <th scope="col">Creat Date</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of todoList">
+        <th scope="row">{{item.ID}}</th>
+        <td>{{item.Title}}</td>
+        <td>{{item.IsDone}}</td>
+        <td>{{item.CreatedDate|date}}</td>
+        <td>
+          <!-- (click)="update(item.Title,item.ID,item.IsDone) -->
+          <button class="btn btn-primary" [routerLink]="['/todo/edit']">Edit</button>
+          
+        </td>
+        <td><button class="btn btn-primary" (click)="delete(item.ID)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
